@@ -1,0 +1,25 @@
+{
+    "name": "redcode/faq-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 currency rate bundle",
+    "keywords": ["faq", "Symfony2", "bundle"],
+    "homepage": "https://github.com/maZahaca/faq-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Reddikh",
+            "email": "mazahaco@gmail.com",
+            "homepage": "https://github.com/maZahaca"
+    	}
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.4",
+        "symfony/framework-bundle": ">=2.0,<2.3-dev",
+        "doctrine/doctrine-bundle": "*"
+    },
+    "autoload": {
+        "psr-0": { "RedCode\\FaqBundle": "" }
+    },
+    "target-dir": "RedCode/FaqBundle"
+}
