@@ -4,9 +4,10 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <mapped-superclass name="RedCode\FaqBundle\Entity\FaqItem">
+    <mapped-superclass name="RedCode\FaqBundle\Entity\FaqItem" repository-class="RedCode\FaqBundle\EntityRepository\FaqItem">
         <field name="question" column="question" type="text" />
         <field name="answer" column="answer" type="text" />
+        <field name="position" column="position" type="integer" />
         <field name="createdAt" column="created_at" type="datetime" />
     </mapped-superclass>
 

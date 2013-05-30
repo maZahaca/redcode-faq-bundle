@@ -1,0 +1,8 @@
+{% extends "RedCodeFaqBundle::layout_admin.html.twig" %}
+
+{% block redcode_faq_content %}
+    {% for topic in topics %}
+        {{ topic.question }}
+        {{ topic.answer }}
+    {% endfor %}
+{% endblock %}
