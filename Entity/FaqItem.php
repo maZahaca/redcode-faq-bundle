@@ -4,7 +4,6 @@ namespace RedCode\FaqBundle\Entity;
 
 /**
  * @author maZahaca
- * @ORM\Entity(repositoryClass="RedCode\FaqBundle\EntityRepository\FaqItem")
  */
 abstract class FaqItem
 {
