@@ -1,1 +1,38 @@
 {% extends "RedCodeFaqBundle::layout_admin.html.twig" %}
+{% block redcode_faq_content %}
+    <div class="faq-container">
+        <article>
+            <div class="data-container">
+                <header>
+                    <h2>{{ 'FAQ' | trans() }} </h2>
+                </header>
+                <header class='header-filter'>
+                    <ul class="data-header-actions">
+                        <li>
+                            <form  action="{{ path('RedCodeFaqBundle_PublicFaq') }}">
+                                <input style="margin-bottom: 0;" type="text" name="s" class="search-input" placeholder="{{ 'Search' | trans() }}"/>
+                                <input type='submit' class='btn' value="ОК" />
+                            </form>
+                        </li>
+                    </ul>
+                </header>
+                <div id="faq-list">
+                    <ul>
+                        {% for topic in topics %}
+                            <li><a href="#topic-{{ topic.id }}">{{ topic.question }}</a></li>
+                        {% endfor %}
+                    </ul>
+
+                    {% for topic in topics %}
+                        <h1>{{ topic.question }}</h1>
+                        <div id="topic-{{ topic.id }}">{{ topic.answer | raw }}</div>
+
+                    {% else %}
+                        <p>{{ 'Questions not found' | trans() }}</p>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </article>
+    </div>
+{% endblock %}

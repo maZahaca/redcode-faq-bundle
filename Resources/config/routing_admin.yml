@@ -1,0 +1,20 @@
+RedCodeFaqBundle_AdminFaq:
+    pattern: /faq
+    defaults: { _controller: RedCodeFaqBundle:FaqAdmin:list}
+RedCodeFaqBundle_AdminFaqCreate:
+    pattern: /faq/create.{_format}
+    defaults: { _controller: RedCodeFaqBundle:FaqAdmin:create, _format: html}
+
+RedCodeFaqBundle_AdminFaqEdit:
+    pattern: /faq/edit/{id}.{_format}
+    defaults: { _controller: RedCodeFaqBundle:FaqAdmin:edit, _format: html}
+RedCodeFaqBundle_AdminFaqDelete:
+    pattern: /faq/delete/{id}.{_format}
+    defaults: { _controller: RedCodeFaqBundle:FaqAdmin:delete, _format: html}
+
+RedCodeFaqBundle_AdminFaqMoveUp:
+    pattern: /faq/move/{id}/up
+    defaults: { _controller: RedCodeFaqBundle:FaqAdmin:moveTopicUp}
+RedCodeFaqBundle_AdminFaqMoveDown:
+    pattern: /faq/move/{id}/down
+    defaults: { _controller: RedCodeFaqBundle:FaqAdmin:moveTopicDown}

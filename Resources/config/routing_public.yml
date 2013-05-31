@@ -1,0 +1,3 @@
+RedCodeFaqBundle_PublicFaq:
+    pattern: /faq
+    defaults: { _controller: RedCodeFaqBundle:Faq:list}

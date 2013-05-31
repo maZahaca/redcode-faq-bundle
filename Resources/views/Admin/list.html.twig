@@ -1,8 +1,62 @@
 {% extends "RedCodeFaqBundle::layout_admin.html.twig" %}
 
 {% block redcode_faq_content %}
-    {% for topic in topics %}
-        {{ topic.question }}
-        {{ topic.answer }}
-    {% endfor %}
+
+    <div class="faq-container">
+        <article>
+            <div class="data-container">
+                <header>
+                    <h2>{{ "FAQ" | trans() }}</h2>
+                    <ul class="data-header-actions">
+                        <li><a class="btn add-new-question" href="{{ path('RedCodeFaqBundle_AdminFaqCreate') }}">{{ "New question" | trans() }}</a></li>
+                    </ul>
+                </header>
+                <header class='header-filter'>
+                    <ul class="data-header-actions" style="float: left;">
+                        <li>
+                            <form action="{{ path('RedCodeFaqBundle_AdminFaq') }}">
+                                <input type="text" name="s" class="search-input" placeholder="{{ "Search" | trans() }}"/>
+                                <input type='submit' class='btn' value="ОК" />
+                            </form>
+                        </li>
+                    </ul>
+                </header>
+                <div id="faq-list">
+                    <table id='faq-table'>
+                        <thead>
+                        <tr>
+                            <th>{{ "Question" | trans() }}</th>
+                            <th>{{ "Answer" | trans() }}</th>
+                            <th>{{ "Created At" | trans() }}</th>
+                            <th>{{ "Position" | trans() }}</th>
+                            <th>{{ "Actions" | trans() }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for topic in topics %}
+                            <tr>
+                                <td>{{ topic.question }}</td>
+                                <td>{{ topic.answer | slice(0, 200) | raw }}</td>
+                                <td>{{ topic.createdAt | date('d.m.Y') }}</td>
+                                <td>
+                                    <a href="{{ path('RedCodeFaqBundle_AdminFaqMoveUp', {id: topic.id}) }}">{{ "Move up" | trans() }}</a>
+                                    <a href="{{ path('RedCodeFaqBundle_AdminFaqMoveDown', {id: topic.id}) }}">{{ "Move down" | trans() }}</a>
+                                </td>
+                                <td>
+                                    <a href="{{ path('RedCodeFaqBundle_AdminFaqEdit', {'id':topic.id}) }}">{{ "Edit" | trans() }}</a>
+                                    <a href="{{ path('RedCodeFaqBundle_AdminFaqDelete', {'id':topic.id}) }}">{{ "Delete" | trans() }}</a>
+
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan='5'><p>{{ "Questions not found" | trans() }}</p></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+    </div>
 {% endblock %}

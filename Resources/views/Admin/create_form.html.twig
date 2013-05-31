@@ -1,3 +1,4 @@
-<form>
+<form action="{{ path('RedCodeFaqBundle_AdminFaqCreate') }}" method="POST">
     {{ form_widget(form) }}
+    <input type="submit" value="{{ 'Create' | trans() }}">
 </form>
